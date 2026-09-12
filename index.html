@@ -275,9 +275,9 @@
   <header class="hero">
     <p class="eyebrow">Worked Examples · Trigonometrical Identities</p>
     <h1 class="title">Four techniques, worked in full</h1>
-    <p class="dek">Every ICSE-style trig identity question is really one of four jobs: prove a result that follows from a given condition, remove θ from a pair of equations, solve an equation down to a named angle, or read a length off a right triangle built from an angle of elevation or depression. Twenty-four examples below, six per technique, each carried step by step from the given to the result.</p>
+    <p class="dek">Every ICSE-style trig identity question is really one of four jobs: prove a result that follows from a given condition, remove θ from a pair of equations, solve an equation down to a named angle, or read a length off a right triangle built from an angle of elevation or depression. Twenty-eight examples below — six per technique, ten for heights and distances, running from warm-up to full board-exam difficulty — each carried step by step from the given to the result.</p>
     <div class="stats">
-      <div class="stat"><b>24</b><span>worked examples</span></div>
+      <div class="stat"><b>28</b><span>worked examples</span></div>
       <div class="stat"><b>4</b><span>techniques</span></div>
       <div class="stat"><b>0°–90°</b><span>angle range used</span></div>
     </div>
@@ -679,10 +679,63 @@
         </div>
       </article>
 
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.7</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">From the top of a building 20 m high, the angle of elevation of the top of a tower is 30°, and the angle of depression of the foot of the tower is 45°. Find the height of the tower, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Draw a horizontal line from the top of the building (A) across to the tower. It meets the tower at a point E level with A, splitting the tower into ED (below, level with the ground) and EC (above, up to the tower's top).</div>
+          <div class="step">ED = AB = 20 m (the building's own height), and AE = the horizontal gap between building and tower — call it x.</div>
+          <div class="step">Depression to the foot D is 45°: tan 45° = ED/AE = 20/x → x = 20 (since tan 45° = 1)</div>
+          <div class="step">Elevation to the top C is 30°: tan 30° = EC/AE = EC/20 → EC = 20/√3 = 11.55</div>
+          <div class="step note">The tower's total height is ED + EC, not EC alone — the 20 m below the horizontal line still counts.</div>
+          <div class="step result">Tower height = 20 + 11.55 = 31.55 m ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.8</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">A 10 m ladder leans against a wall, making an angle of 60° with the ground. The foot is then pulled away until the ladder makes an angle of 30° with the ground instead. Find how far the foot was pulled out, and how far the top slides down the wall, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">The ladder's length (10 m) is the hypotenuse throughout — only the angle changes. Foot distance uses cosine, height on the wall uses sine.</div>
+          <div class="step">At 60°: foot distance = 10 cos 60° = 10 × 1/2 = 5 m. Height up the wall = 10 sin 60° = 10 × √3/2 = 8.66 m.</div>
+          <div class="step">At 30°: foot distance = 10 cos 30° = 10 × √3/2 = 8.66 m. Height up the wall = 10 sin 30° = 10 × 1/2 = 5 m.</div>
+          <div class="step note">cos 60° = sin 30° and cos 30° = sin 60° — complementary angles swap sine and cosine, which is why both changes come out to exactly the same number here.</div>
+          <div class="step">Foot pulled out = 8.66 − 5 = 3.66 m. Top slides down = 8.66 − 5 = 3.66 m.</div>
+          <div class="step result">Foot moves out 3.66 m; top slides down 3.66 m ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.9</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Two vertical poles of heights 6 m and 11 m stand on level ground, 12 m apart. Find the distance between their tops, and the tangent of the angle of elevation of the taller pole's top as seen from the shorter pole's top.</p>
+        <div class="solution">
+          <div class="step">Draw a horizontal line from the top of the shorter pole across to the taller one. It meets the taller pole 6 m up from its base, leaving 11 − 6 = 5 m of pole above that line.</div>
+          <div class="step">This horizontal line, the leftover 5 m, and the segment joining the two tops form a right triangle with legs 12 m and 5 m.</div>
+          <div class="step">Distance between tops = √(12² + 5²) = √(144 + 25) = √169</div>
+          <div class="step note">12–5–13 is a Pythagorean triple — no decimal rounding needed here.</div>
+          <div class="step">tan θ = opposite/adjacent = 5/12, where θ is the elevation angle from the shorter pole's top</div>
+          <div class="step result">Distance between tops = 13 m; tan θ = 5/12 ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.10</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">A tower is surmounted by a flagstaff 6 m tall. From a point on the ground, the angles of elevation of the top and the bottom of the flagstaff are 60° and 45° respectively. Find the height of the tower, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Unlike D.5, neither the tower's height nor the distance to it is given — only the flagstaff's length. Let the tower height be h and the (unknown) horizontal distance be x.</div>
+          <div class="step">To the bottom of the flagstaff (top of the tower), 45°: tan 45° = h/x → x = h</div>
+          <div class="step">To the top of the flagstaff, 60°: tan 60° = (h + 6)/x → x = (h + 6)/√3</div>
+          <div class="step">Set the two expressions for x equal: h = (h + 6)/√3 → h√3 = h + 6 → h(√3 − 1) = 6</div>
+          <div class="step">h = 6/(√3 − 1). Rationalise by multiplying by (√3 + 1)/(√3 + 1):</div>
+          <div class="step">h = 6(√3 + 1)/(3 − 1) = 3(√3 + 1) = 3√3 + 3</div>
+          <div class="step result">h = 3(1.732) + 3 = 8.20 m ∎</div>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <footer>Trig Identities Workbook — 24 worked examples across conditional results, elimination of θ, solving for θ, and heights &amp; distances.</footer>
+  <footer>Trig Identities Workbook — 28 worked examples across conditional results, elimination of θ, solving for θ, and heights &amp; distances.</footer>
 </div>
 
 <script>

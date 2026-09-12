@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trig Identities Workbook</title>
+<meta name="description" content="24 fully worked trigonometric-identity examples covering conditional results, eliminating the unknown angle, solving for it, and heights &amp; distances.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#eef1ec;
+    --bg-grid: rgba(29,92,99,0.07);
+    --surface:#ffffff;
+    --surface-2:#e3e8e1;
+    --ink:#1c2b2a;
+    --ink-soft:#51625f;
+    --ink-faint:#7c8a86;
+    --accent:#1d5c63;
+    --accent-soft:#e4eeed;
+    --accent-2:#a1653c;
+    --accent-2-soft:#f4e9dd;
+    --border:#d2d9cd;
+    --border-strong:#b8c2b3;
+    --warmup:#5f8a5f;
+    --warmup-soft:#e6efe2;
+    --standard:#3c6d95;
+    --standard-soft:#e3ecf4;
+    --challenge:#a3503f;
+    --challenge-soft:#f4e4de;
+    --shadow: 0 1px 2px rgba(20,40,38,0.06), 0 8px 24px -12px rgba(20,40,38,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#10181a;
+      --bg-grid: rgba(95,184,172,0.08);
+      --surface:#182425;
+      --surface-2:#1e2c2d;
+      --ink:#dfe8e5;
+      --ink-soft:#a3b3af;
+      --ink-faint:#758684;
+      --accent:#6cc2b5;
+      --accent-soft:#1c3634;
+      --accent-2:#d99a5f;
+      --accent-2-soft:#2f2620;
+      --border:#2b3a3b;
+      --border-strong:#3a4c4d;
+      --warmup:#87c08a;
+      --warmup-soft:#1d2e20;
+      --standard:#7cb0e0;
+      --standard-soft:#1c2c3a;
+      --challenge:#e0917d;
+      --challenge-soft:#33221d;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#10181a;
+    --bg-grid: rgba(95,184,172,0.08);
+    --surface:#182425;
+    --surface-2:#1e2c2d;
+    --ink:#dfe8e5;
+    --ink-soft:#a3b3af;
+    --ink-faint:#758684;
+    --accent:#6cc2b5;
+    --accent-soft:#1c3634;
+    --accent-2:#d99a5f;
+    --accent-2-soft:#2f2620;
+    --border:#2b3a3b;
+    --border-strong:#3a4c4d;
+    --warmup:#87c08a;
+    --warmup-soft:#1d2e20;
+    --standard:#7cb0e0;
+    --standard-soft:#1c2c3a;
+    --challenge:#e0917d;
+    --challenge-soft:#33221d;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.55);
+  }
+
+  *{box-sizing:border-box;}
+  html{ background:var(--bg); }
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px) 0 0/100% 34px,
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) 0 0/34px 100%,
+      var(--bg);
+    color:var(--ink);
+    font-family:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+    text-wrap:balance;
+    color:var(--ink);
+    margin:0;
+  }
+  .mono{font-family:"IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;}
+  .wrap{max-width:800px; margin:0 auto; padding:0 20px 96px;}
+  img{max-width:100%;}
+  [hidden]{display:none !important;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar-inner{
+    max-width:800px; margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .topbar-mark{
+    font-family:"Fraunces", serif; font-weight:600; font-size:15px;
+    color:var(--accent); white-space:nowrap;
+  }
+  .topnav{display:flex; gap:6px; flex-wrap:wrap;}
+  .topnav a{
+    font-size:13px; font-weight:600; text-decoration:none; color:var(--ink-soft);
+    padding:6px 11px; border-radius:99px; border:1px solid transparent;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .topnav a:hover{ color:var(--accent); border-color:var(--border-strong); }
+  .topnav a:focus-visible, .reveal-btn:focus-visible, .practice-switch input:focus-visible + .track {
+    outline:2px solid var(--accent); outline-offset:2px;
+  }
+  .practice-switch{
+    margin-left:auto; display:flex; align-items:center; gap:9px;
+    font-size:13px; color:var(--ink-soft); user-select:none; cursor:pointer;
+  }
+  .practice-switch .track{
+    width:34px; height:19px; border-radius:99px; background:var(--surface-2);
+    border:1px solid var(--border-strong); position:relative; flex:none;
+    transition: background .15s;
+  }
+  .practice-switch .track::after{
+    content:""; position:absolute; top:2px; left:2px; width:13px; height:13px;
+    border-radius:50%; background:var(--ink-faint); transition: transform .15s, background .15s;
+  }
+  .practice-switch input{ position:absolute; opacity:0; width:1px; height:1px; }
+  .practice-switch input:checked + .track{ background:var(--accent-soft); border-color:var(--accent); }
+  .practice-switch input:checked + .track::after{ transform:translateX(15px); background:var(--accent); }
+
+  /* ---------- Header ---------- */
+  header.hero{ padding:46px 0 30px; }
+  .eyebrow{
+    font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h1.title{ font-size:clamp(30px, 4.4vw, 42px); font-weight:600; line-height:1.1; }
+  .dek{
+    max-width:62ch; color:var(--ink-soft); font-size:16.5px; margin:14px 0 0;
+  }
+  .stats{ display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+  .stat{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:9px 14px; box-shadow:var(--shadow);
+  }
+  .stat b{ font-family:"IBM Plex Mono", monospace; font-variant-numeric:tabular-nums; color:var(--accent); font-size:15px; }
+  .stat span{ display:block; font-size:11.5px; color:var(--ink-faint); margin-top:1px; }
+
+  /* ---------- Reference card ---------- */
+  .reference{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    box-shadow:var(--shadow); padding:22px 24px; margin:0 0 40px;
+    display:grid; grid-template-columns: 1.15fr 1fr; gap:26px;
+  }
+  @media (max-width:640px){ .reference{ grid-template-columns:1fr; } }
+  .reference h3{ font-size:14.5px; font-weight:600; margin-bottom:12px; color:var(--accent); }
+  table.angles{ border-collapse:collapse; width:100%; font-variant-numeric:tabular-nums; }
+  table.angles th, table.angles td{
+    padding:5px 8px; text-align:center; font-size:13.5px; border-bottom:1px solid var(--border);
+  }
+  table.angles th{ font-family:"IBM Plex Mono", monospace; font-weight:500; color:var(--ink-faint); font-size:12px; }
+  table.angles td:first-child, table.angles th:first-child{ text-align:left; color:var(--ink-soft); font-family:"IBM Plex Mono",monospace; }
+  table.angles tr:last-child td{ border-bottom:none; }
+  .identities{ display:flex; flex-direction:column; gap:9px; justify-content:center; }
+  .identities .id-line{
+    font-family:"IBM Plex Mono", monospace; font-size:14px; background:var(--accent-soft);
+    color:var(--accent); border-radius:8px; padding:8px 12px; width:fit-content;
+  }
+
+  /* ---------- Section ---------- */
+  section.topic{ margin-top:56px; scroll-margin-top:74px; }
+  .topic-head{ display:flex; align-items:flex-start; gap:14px; margin-bottom:16px; }
+  .topic-icon{
+    flex:none; width:44px; height:44px; border-radius:11px; background:var(--surface);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    color:var(--accent); box-shadow:var(--shadow);
+  }
+  .topic-icon svg{ width:26px; height:26px; }
+  .topic-head h2{ font-size:22px; font-weight:600; }
+  .topic-head .topic-sub{ color:var(--ink-faint); font-size:13.5px; margin-top:3px; }
+
+  .method{
+    background:var(--surface-2); border-left:3px solid var(--accent); border-radius:0 10px 10px 0;
+    padding:14px 18px; margin:0 0 22px; font-size:14.5px; color:var(--ink-soft);
+  }
+  .method b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- Example cards ---------- */
+  .examples{ display:flex; flex-direction:column; gap:14px; }
+  .example{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:18px 20px 20px; box-shadow:var(--shadow);
+  }
+  .ex-head{ display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .ex-num{
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px; font-weight:600; color:var(--ink-faint);
+  }
+  .tag{
+    font-size:11px; font-weight:600; letter-spacing:.03em; text-transform:uppercase;
+    padding:3px 9px; border-radius:99px;
+  }
+  .tag-warmup{ background:var(--warmup-soft); color:var(--warmup); }
+  .tag-standard{ background:var(--standard-soft); color:var(--standard); }
+  .tag-challenge{ background:var(--challenge-soft); color:var(--challenge); }
+
+  .reveal-btn{
+    display:none; margin-left:auto; font-family:"Source Sans 3", sans-serif; font-size:12.5px; font-weight:600;
+    color:var(--accent); background:var(--accent-soft); border:1px solid transparent; border-radius:8px;
+    padding:5px 11px; cursor:pointer;
+  }
+  .reveal-btn:hover{ border-color:var(--accent); }
+  body.practice-mode .reveal-btn{ display:inline-flex; }
+
+  .problem{ font-size:16px; color:var(--ink); margin:0 0 4px; }
+  .problem .mono{ font-size:15.5px; }
+
+  .solution{
+    margin-top:14px; padding-top:14px; border-top:1px dashed var(--border-strong);
+    display:flex; flex-direction:column; gap:7px;
+  }
+  body.practice-mode .example:not(.revealed) .solution{ display:none; }
+
+  .step{
+    font-family:"IBM Plex Mono", monospace; font-size:14px; color:var(--ink-soft);
+    padding-left:14px; border-left:2px solid var(--border); line-height:1.65;
+    overflow-x:auto; white-space:pre-wrap;
+  }
+  .step.note{ font-family:"Source Sans 3", sans-serif; color:var(--ink-faint); font-size:13.5px; font-style:italic; border-left-color:transparent; padding-left:12px; }
+  .step.result{
+    border-left-color:var(--accent-2); color:var(--ink); font-weight:600;
+    background:var(--accent-2-soft); border-radius:0 8px 8px 0; padding:8px 12px;
+  }
+
+  footer{ margin-top:60px; padding-top:20px; border-top:1px solid var(--border); color:var(--ink-faint); font-size:12.5px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-mark">△ Trig Identities Workbook</span>
+    <nav class="topnav">
+      <a href="#sec-a">A · Conditional Results</a>
+      <a href="#sec-b">B · Eliminating θ</a>
+      <a href="#sec-c">C · Finding θ</a>
+      <a href="#sec-d">D · Heights &amp; Distances</a>
+    </nav>
+    <label class="practice-switch">
+      <input type="checkbox" id="practice-toggle">
+      <span class="track"></span>
+      Practice mode
+    </label>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Worked Examples · Trigonometrical Identities</p>
+    <h1 class="title">Four techniques, worked in full</h1>
+    <p class="dek">Every ICSE-style trig identity question is really one of four jobs: prove a result that follows from a given condition, remove θ from a pair of equations, solve an equation down to a named angle, or read a length off a right triangle built from an angle of elevation or depression. Twenty-four examples below, six per technique, each carried step by step from the given to the result.</p>
+    <div class="stats">
+      <div class="stat"><b>24</b><span>worked examples</span></div>
+      <div class="stat"><b>4</b><span>techniques</span></div>
+      <div class="stat"><b>0°–90°</b><span>angle range used</span></div>
+    </div>
+  </header>
+
+  <div class="reference">
+    <div>
+      <h3>Standard values, cold</h3>
+      <table class="angles">
+        <tr><th>ratio</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr>
+        <tr><td>sin</td><td>0</td><td>1/2</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+        <tr><td>cos</td><td>1</td><td>√3/2</td><td>1/√2</td><td>1/2</td><td>0</td></tr>
+        <tr><td>tan</td><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>—</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>The three identities everything reduces to</h3>
+      <div class="identities">
+        <div class="id-line">sin²θ + cos²θ = 1</div>
+        <div class="id-line">1 + tan²θ = sec²θ</div>
+        <div class="id-line">1 + cot²θ = cosec²θ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SECTION A ================= -->
+  <section class="topic" id="sec-a">
+    <div class="topic-head">
+      <div class="topic-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M6 32 L34 32 L34 8 Z"/>
+          <path d="M15 32 A9 9 0 0 1 12.4 25.3" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <h2>A. Establishing Conditional Results</h2>
+        <p class="topic-sub">A relation between the ratios is handed to you — use it, don't re-derive it.</p>
+      </div>
+    </div>
+    <div class="method">
+      <b>Method.</b> The given condition is a tool, not a target. Either (1) solve it for one ratio and substitute that into the expression to be proved, or (2) combine the condition algebraically with itself (square it, multiply by its "conjugate") until a Pythagorean identity appears and cancels a variable out.
+    </div>
+
+    <div class="examples">
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">A.1</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If sin θ + cosec θ = 2, prove that sin²θ + cosec²θ = 2.</p>
+        <div class="solution">
+          <div class="step">Let s = sin θ. The condition reads s + 1/s = 2.</div>
+          <div class="step">Multiply through by s: s² − 2s + 1 = 0, i.e. (s − 1)² = 0.</div>
+          <div class="step note">A perfect square forces the value — this is what makes the condition worth using.</div>
+          <div class="step">So s = 1, meaning sin θ = 1 and cosec θ = 1 both hold exactly.</div>
+          <div class="step result">sin²θ + cosec²θ = 1² + 1² = 2 ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">A.2</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = r sin θ cos φ, y = r sin θ sin φ, z = r cos θ, prove that x² + y² + z² = r².</p>
+        <div class="solution">
+          <div class="step">x² + y² = r²sin²θcos²φ + r²sin²θsin²φ = r²sin²θ(cos²φ + sin²φ)</div>
+          <div class="step">cos²φ + sin²φ = 1, so x² + y² = r²sin²θ.</div>
+          <div class="step">Now bring in z²= r²cos²θ: x²+y²+z² = r²sin²θ + r²cos²θ = r²(sin²θ+cos²θ)</div>
+          <div class="step result">= r² ∎</div>
+          <div class="step note">Two applications of sin²+cos²=1 — once in φ, once in θ.</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">A.3</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If a cos θ − b sin θ = c, prove that a sin θ + b cos θ = ±√(a² + b² − c²).</p>
+        <div class="solution">
+          <div class="step">Name the given quantity u = a cosθ − b sinθ = c, and let v = a sinθ + b cosθ be the unknown.</div>
+          <div class="step">Expand u² + v² — the cross terms −2ab sinθcosθ and +2ab sinθcosθ cancel:</div>
+          <div class="step">u² + v² = a²(cos²θ+sin²θ) + b²(sin²θ+cos²θ) = a² + b²</div>
+          <div class="step note">This cancellation is the whole trick: u²+v² is independent of θ.</div>
+          <div class="step">Substitute u = c: c² + v² = a² + b² → v² = a² + b² − c²</div>
+          <div class="step result">a sin θ + b cos θ = v = ±√(a² + b² − c²) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">A.4</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If sec θ + tan θ = p, prove that sin θ = (p² − 1)/(p² + 1).</p>
+        <div class="solution">
+          <div class="step">(sec θ + tan θ)(sec θ − tan θ) = sec²θ − tan²θ = 1, so sec θ − tan θ = 1/p.</div>
+          <div class="step">Add the two equations: 2 sec θ = p + 1/p = (p²+1)/p</div>
+          <div class="step">Subtract them: 2 tan θ = p − 1/p = (p²−1)/p</div>
+          <div class="step">sin θ = tan θ / sec θ = [(p²−1)/p] ÷ [(p²+1)/p]</div>
+          <div class="step result">sin θ = (p² − 1)/(p² + 1) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">A.5</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If cos θ + sin θ = √2 cos θ, prove that cos θ − sin θ = √2 sin θ.</p>
+        <div class="solution">
+          <div class="step">Rearrange the given relation: sin θ = (√2 − 1) cos θ.</div>
+          <div class="step">The claim to prove is equivalent to cos θ = (√2 + 1) sin θ. Substitute the line above into its right side:</div>
+          <div class="step">(√2 + 1) sin θ = (√2 + 1)(√2 − 1) cos θ = (2 − 1) cos θ = cos θ</div>
+          <div class="step note">(√2+1)(√2−1) is a difference of squares, 2 − 1 — the surd vanishes cleanly.</div>
+          <div class="step result">The right side reduces to exactly cos θ, so cos θ − sin θ = √2 sin θ ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">A.6</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x sin³θ + y cos³θ = sin θ cos θ and x sin θ = y cos θ, prove that x² + y² = 1.</p>
+        <div class="solution">
+          <div class="step">From the second condition, x sin θ = y cos θ, so x = y cos θ / sin θ (sin θ ≠ 0).</div>
+          <div class="step">Substitute into the first condition:</div>
+          <div class="step">(y cos θ / sin θ) sin³θ + y cos³θ = sin θ cos θ</div>
+          <div class="step">y cos θ sin²θ + y cos³θ = sin θ cos θ</div>
+          <div class="step">Factor out y cos θ: y cos θ (sin²θ + cos²θ) = sin θ cos θ → y cos θ = sin θ cos θ</div>
+          <div class="step">So y = sin θ (cos θ ≠ 0). Then from x sin θ = y cos θ = sin θ cos θ, we get x = cos θ.</div>
+          <div class="step result">x² + y² = cos²θ + sin²θ = 1 ∎</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION B ================= -->
+  <section class="topic" id="sec-b">
+    <div class="topic-head">
+      <div class="topic-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <line x1="4" y1="34" x2="36" y2="34"/>
+          <line x1="8" y1="38" x2="8" y2="4"/>
+          <ellipse cx="22" cy="20" rx="14" ry="9" stroke-width="2"/>
+          <line x1="22" y1="20" x2="33" y2="14"/>
+          <circle cx="33" cy="14" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div>
+        <h2>B. Elimination of the Unknown Angle</h2>
+        <p class="topic-sub">Two equations trace out x and y as θ varies — find the one relation between x and y that no longer mentions θ.</p>
+      </div>
+    </div>
+    <div class="method">
+      <b>Method.</b> Isolate a trig ratio of θ on one side of each equation (x/a = cos θ, y/b = sin θ, …), then combine using a Pythagorean identity so θ cancels entirely. Squaring both equations and adding is the move that works more often than any other.
+    </div>
+
+    <div class="examples">
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">B.1</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = r cos θ and y = r sin θ, eliminate θ.</p>
+        <div class="solution">
+          <div class="step">x² = r²cos²θ and y² = r²sin²θ.</div>
+          <div class="step">x² + y² = r²(cos²θ + sin²θ) = r² — θ has disappeared.</div>
+          <div class="step result">x² + y² = r² (a circle of radius r) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">B.2</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = a cos θ and y = b sin θ, eliminate θ.</p>
+        <div class="solution">
+          <div class="step">x/a = cos θ and y/b = sin θ.</div>
+          <div class="step">Square both and add: (x/a)² + (y/b)² = cos²θ + sin²θ</div>
+          <div class="step result">x²/a² + y²/b² = 1 (an ellipse) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">B.3</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = a sec θ and y = b tan θ, eliminate θ.</p>
+        <div class="solution">
+          <div class="step">x/a = sec θ and y/b = tan θ.</div>
+          <div class="step">Use sec²θ − tan²θ = 1, not sin²+cos²=1 — the ratios here are sec and tan.</div>
+          <div class="step">(x/a)² − (y/b)² = sec²θ − tan²θ</div>
+          <div class="step result">x²/a² − y²/b² = 1 (a hyperbola) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">B.4</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x cos θ + y sin θ = p and x sin θ − y cos θ = q, eliminate θ.</p>
+        <div class="solution">
+          <div class="step">Square both equations and add them.</div>
+          <div class="step">(x cosθ+y sinθ)² = x²cos²θ + 2xy sinθcosθ + y²sin²θ</div>
+          <div class="step">(x sinθ−y cosθ)² = x²sin²θ − 2xy sinθcosθ + y²cos²θ</div>
+          <div class="step note">The 2xy sinθcosθ cross terms carry opposite signs and cancel on adding.</div>
+          <div class="step">Sum = x²(cos²θ+sin²θ) + y²(sin²θ+cos²θ) = x² + y²</div>
+          <div class="step result">x² + y² = p² + q² ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">B.5</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = a(cos θ + sin θ) and y = a(cos θ − sin θ), eliminate θ.</p>
+        <div class="solution">
+          <div class="step">x² + y² = a²[(cosθ+sinθ)² + (cosθ−sinθ)²]</div>
+          <div class="step">(cosθ+sinθ)² = 1 + 2sinθcosθ  and  (cosθ−sinθ)² = 1 − 2sinθcosθ — the cross terms cancel on adding.</div>
+          <div class="step">x² + y² = a²[2cos²θ + 2sin²θ] = 2a²</div>
+          <div class="step result">x² + y² = 2a² ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">B.6</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">If x = a cos³θ and y = b sin³θ, eliminate θ.</p>
+        <div class="solution">
+          <div class="step">(x/a) = cos³θ and (y/b) = sin³θ, so (x/a)^(1/3) = cos θ and (y/b)^(1/3) = sin θ.</div>
+          <div class="step note">Cube roots first — Pythagoras needs cos θ and sin θ themselves, not their cubes.</div>
+          <div class="step">Square each and add: (x/a)^(2/3) + (y/b)^(2/3) = cos²θ + sin²θ</div>
+          <div class="step result">(x/a)^(2/3) + (y/b)^(2/3) = 1 (an astroid) ∎</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION C ================= -->
+  <section class="topic" id="sec-c">
+    <div class="topic-head">
+      <div class="topic-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <line x1="4" y1="34" x2="36" y2="34"/>
+          <line x1="4" y1="34" x2="26" y2="8" stroke-dasharray="3 2.4"/>
+          <path d="M15 34 A11 11 0 0 1 12.1 25.2" stroke-width="1.5"/>
+          <circle cx="4" cy="34" r="1.7" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div>
+        <h2>C. Finding the Unknown Angle</h2>
+        <p class="topic-sub">Solve the equation down to one ratio of one angle, then read θ off the standard table. Domain: 0° ≤ θ ≤ 90° throughout.</p>
+      </div>
+    </div>
+    <div class="method">
+      <b>Method.</b> Reduce to a single trig ratio — by direct algebra, by factoring a quadratic in sin θ / cos θ / tan θ, or by matching two different angles with sin θ = cos(90° − θ). Then read θ from the standard-values table, and check every root actually lies in the stated domain before keeping it.
+    </div>
+
+    <div class="examples">
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">C.1</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: 2 sin θ − √3 = 0.</p>
+        <div class="solution">
+          <div class="step">sin θ = √3/2</div>
+          <div class="step result">θ = 60° ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">C.2</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: sec θ − √2 = 0.</p>
+        <div class="solution">
+          <div class="step">sec θ = √2 → cos θ = 1/√2</div>
+          <div class="step result">θ = 45° ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">C.3</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: 2 sin²θ − sin θ − 1 = 0.</p>
+        <div class="solution">
+          <div class="step">This is a quadratic in sin θ. Let s = sin θ: 2s² − s − 1 = 0</div>
+          <div class="step">Factor: (2s + 1)(s − 1) = 0 → s = −1/2 or s = 1</div>
+          <div class="step note">Reject s = −1/2: on 0°–90°, sin θ never goes negative.</div>
+          <div class="step">So sin θ = 1</div>
+          <div class="step result">θ = 90° ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">C.4</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: sin 3θ = cos(θ + 6°), where 3θ and θ + 6° are both acute.</p>
+        <div class="solution">
+          <div class="step">Rewrite the left side as a cosine so both sides name the same function: sin 3θ = cos(90° − 3θ)</div>
+          <div class="step">cos(90° − 3θ) = cos(θ + 6°)</div>
+          <div class="step note">Equal cosines of acute angles ⇒ the angles themselves are equal.</div>
+          <div class="step">90° − 3θ = θ + 6° → 84° = 4θ</div>
+          <div class="step result">θ = 21°  (check: 3θ = 63°, θ+6° = 27°, both acute ✓) ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">C.5</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: tan²θ − (1 + √3) tan θ + √3 = 0.</p>
+        <div class="solution">
+          <div class="step">A quadratic in tan θ with two standard-angle roots built in. Factor directly:</div>
+          <div class="step">(tan θ − 1)(tan θ − √3) = 0</div>
+          <div class="step">tan θ = 1  or  tan θ = √3</div>
+          <div class="step result">θ = 45°  or  θ = 60° ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">C.6</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">Solve for θ: sec²θ = 1 + √3 tan θ.</p>
+        <div class="solution">
+          <div class="step">Rewrite sec²θ using 1 + tan²θ = sec²θ, so both sides speak the same ratio:</div>
+          <div class="step">1 + tan²θ = 1 + √3 tan θ → tan²θ − √3 tan θ = 0</div>
+          <div class="step">Factor: tan θ (tan θ − √3) = 0 → tan θ = 0 or tan θ = √3</div>
+          <div class="step result">θ = 0°  or  θ = 60° ∎</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION D ================= -->
+  <section class="topic" id="sec-d">
+    <div class="topic-head">
+      <div class="topic-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <line x1="4" y1="36" x2="36" y2="36"/>
+          <line x1="30" y1="36" x2="30" y2="8" stroke-width="2"/>
+          <line x1="6" y1="36" x2="30" y2="8" stroke-dasharray="3 2.4"/>
+          <path d="M16 36 A12 12 0 0 1 12.9 27.9" stroke-width="1.5"/>
+          <circle cx="6" cy="36" r="1.7" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div>
+        <h2>D. Heights and Distances</h2>
+        <p class="topic-sub">Every diagram is one right triangle (or two, joined by a shared side) — the trigonometry never gets harder than SOH CAH TOA.</p>
+      </div>
+    </div>
+    <div class="method">
+      <b>Method.</b> Draw the triangle before touching a formula: mark the right angle, the given length, and the given angle. Decide whether you have/want the opposite, adjacent, or hypotenuse relative to that angle and pick tan, sin, or cos accordingly. An <b>angle of elevation</b> is measured upward from the horizontal; an <b>angle of depression</b> downward — and by alternate angles between the two parallel horizontals, the depression angle at the top equals the elevation angle at the point below. Two unknowns from one point needs two equations — eliminate the shared distance and solve for the height.
+    </div>
+
+    <div class="examples">
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">D.1</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">From a point on the ground 25 m from the foot of a tower, the angle of elevation of its top is 30°. Find the height of the tower, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Let the height be h. The tower is opposite the 30° angle; the 25 m is adjacent to it — that's tangent.</div>
+          <div class="step">tan 30° = h/25 → 1/√3 = h/25</div>
+          <div class="step">h = 25/√3 = 25√3/3 = 25 × 1.732 / 3</div>
+          <div class="step result">h = 14.43 m ∎</div>
+          <div class="step note">Check: the angle is under 45°, so the height should be less than the base — 14.43 &lt; 25 ✓</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="warmup">
+        <div class="ex-head"><span class="ex-num">D.2</span><span class="tag tag-warmup">Warm-up</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">From the top of a cliff 50 m high, the angle of depression of a buoy is 30°. Find the distance of the buoy from the foot of the cliff, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">By alternate angles between the horizontal at the top and the horizontal sea surface, the angle of elevation from the buoy to the top is also 30°.</div>
+          <div class="step">Let the distance be d. The cliff (50 m) is opposite the angle; d is adjacent — tangent again.</div>
+          <div class="step">tan 30° = 50/d → 1/√3 = 50/d → d = 50√3</div>
+          <div class="step result">d = 50 × 1.732 = 86.60 m ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">D.3</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">The angles of elevation of the top of a tower from two points on level ground, in line with its foot, are 60° and 45°. If the two points are 25 m apart, find the height of the tower, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Let the height be h, the foot B, the nearer point C (60°) and the farther point D (45°), with CD = 25 m.</div>
+          <div class="step">From C: tan 60° = h/BC → BC = h/√3</div>
+          <div class="step">From D: tan 45° = h/BD → BD = h</div>
+          <div class="step">BD = BC + CD, so h = h/√3 + 25 → h(1 − 1/√3) = 25</div>
+          <div class="step">h × 0.4226 = 25 → h = 59.15</div>
+          <div class="step result">Height ≈ 59.15 m ∎</div>
+          <div class="step note">Two angles from two points → two equations in h and one shared distance; eliminate the distance, solve for h. That's the whole pattern.</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="standard">
+        <div class="ex-head"><span class="ex-num">D.4</span><span class="tag tag-standard">Standard</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">From the top of a lighthouse 60 m high, the angles of depression of two boats on opposite sides are 60° and 30°. Find the distance between the boats, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Both depression angles transfer to elevation angles at the boats, by alternate angles — one triangle on each side of the lighthouse.</div>
+          <div class="step">Nearer boat (60°): tan 60° = 60/d₁ → d₁ = 60/√3 = 20√3 = 34.64 m</div>
+          <div class="step">Farther boat (30°): tan 30° = 60/d₂ → d₂ = 60√3 = 103.92 m</div>
+          <div class="step note">The two triangles sit on opposite sides of the foot, so the distances ADD rather than subtract.</div>
+          <div class="step result">Distance between boats = 34.64 + 103.92 = 138.56 m ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.5</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">A flagpole stands on top of a building. From a point 30 m from the foot of the building, the angles of elevation of the foot and the top of the flagpole are 45° and 60°. Find the height of the flagpole, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Two triangles share the same base, 30 m — one to the foot of the flagpole (top of the building), one to its top.</div>
+          <div class="step">Building height: tan 45° = h/30 → h = 30 m</div>
+          <div class="step">Building + flagpole: tan 60° = H/30 → H = 30√3 = 51.96 m</div>
+          <div class="step note">The flagpole itself is the difference of the two heights, not either one alone — a common slip is stopping at H.</div>
+          <div class="step result">Flagpole height = 51.96 − 30 = 21.96 m ∎</div>
+        </div>
+      </article>
+
+      <article class="example" data-difficulty="challenge">
+        <div class="ex-head"><span class="ex-num">D.6</span><span class="tag tag-challenge">Challenge</span><button class="reveal-btn">Reveal solution</button></div>
+        <p class="problem mono">A man finds the angle of elevation of the top of a tower to be 30°. He walks 40 m towards it on level ground, and the angle becomes 60°. Find the height of the tower, correct to two decimal places.</p>
+        <div class="solution">
+          <div class="step">Let the height be h, and let x be the distance from the tower at the second (nearer) position.</div>
+          <div class="step">Nearer position: tan 60° = h/x → x = h/√3</div>
+          <div class="step">Farther position, 40 m further back: tan 30° = h/(x + 40) → x + 40 = h√3</div>
+          <div class="step">Substitute x: h/√3 + 40 = h√3 → multiply by √3: h + 40√3 = 3h → 2h = 40√3</div>
+          <div class="step">h = 20√3 = 20 × 1.732</div>
+          <div class="step result">Height ≈ 34.64 m ∎</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>Trig Identities Workbook — 24 worked examples across conditional results, elimination of θ, solving for θ, and heights &amp; distances.</footer>
+</div>
+
+<script>
+  const toggle = document.getElementById('practice-toggle');
+  toggle.addEventListener('change', () => {
+    document.body.classList.toggle('practice-mode', toggle.checked);
+  });
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.example');
+      const nowRevealed = card.classList.toggle('revealed');
+      btn.textContent = nowRevealed ? 'Hide solution' : 'Reveal solution';
+    });
+  });
+</script>
+</body>
+</html>
